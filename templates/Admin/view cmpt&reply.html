@@ -1,0 +1,36 @@
+{% extends 'Admin/index.html' %}
+{% block body %}
+<style >
+h{
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="/ipc">
+  <table width="264" border="1" class="table table-dark" >
+  <tr><td colspan="4" align="center"><h>Complaints & reply</h></td> </tr>
+    <tr>
+      <td width="46">User Name </td>
+      <td width="62">Complaint</td>
+      <td width="29">Date</td>
+      <td width="99"><p>Reply</p>
+      </td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ i.USER.Fname }} {{ i.USER.Lname }}</td>
+      <td>{{ i.complaint }}</td>
+      <td>{{ i.date }}</td>
+
+{% if i.reply == 'pending' %}
+      <td><a href="/reply/{{ i.id }}#about" class="btn btn-outline-primary">reply</a></td>
+    {% else %}
+    <td>{{ i.reply }}</td>
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

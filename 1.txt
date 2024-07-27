@@ -1,0 +1,3 @@
+Executed SQL Statement : update `personality`.`perception_app_user_table` set `LOGIN_id` = '' where `id` = '5' 
+Error Number : 1366 
+Error Message: Incorrect integer value: '' for column 'LOGIN_id' at row 1 

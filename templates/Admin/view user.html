@@ -1,0 +1,40 @@
+{% extends 'Admin/index.html' %}
+{% block body %}
+<style >
+h{
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="/viewusersearch">
+  <table width="439" border="1" class="table table-dark">
+   <tr><td colspan="5" align="center"><h>User</h></td> </tr>
+    <tr>
+      <td colspan="5">User Name :
+        <label>
+        <input type="text" name="textfield" />
+        <input type="submit" name="Submit" value="Search" class="btn btn-outline-success"/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td width="93">Name</td>
+      <td width="97">Address</td>
+      <td width="111">Phone</td>
+      <td width="110">Email</td>
+      <td width="110">photo</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ i.Fname }} {{ i.Lname }}</td>
+      <td>&nbsp;{{ i.place }},{{ i.post }},{{ i.pin }}</td>
+      <td>{{ i.phone }}</td>
+      <td>{{ i.Email }}</td>
+      <td><img src="{{ i.Photo.url }}" width="40px" height="50px"></td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

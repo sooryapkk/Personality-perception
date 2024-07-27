@@ -1,0 +1,33 @@
+{% extends 'Expert/expertindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewfeedbackexpertsearch">
+  <table width="324" border="1" class="table table-dark">
+    <tr>
+      <td colspan="4">Date :
+        <label>
+        <input type="date" name="textfield" value="{{ date }}" />
+        </label>
+        <label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-outline-success" />
+        </label></td>
+    </tr>
+    <tr>
+      <td width="74">User Name </td>
+      <td width="85">Feedback</td>
+      <td width="44">Date</td>
+      <td width="93">Rating</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.USER.Fname }} {{ i.USER.Lname }}</td>
+      <td>{{ i.feedback }}</td>
+      <td>{{ i.date}}</td>
+      <td>{{ i.rating  }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

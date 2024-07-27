@@ -1,0 +1,51 @@
+{% extends 'Admin/index.html' %}
+{% block body %}
+<style >
+h{
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+}
+</style>
+<body>
+<form id="form1" name="form1" method="post" action="/addmanageexpertsearch#about">
+  <table width="376" border="1" class="table table-dark">
+  <tr><td colspan="6" align="center"><h>Manage Expert</h></td> </tr>
+    <tr>
+      <td colspan="5"><p>Name :
+          <label>
+        <input type="text" name="textfield" />
+        <input type="submit" name="Submit" value="search" class="btn btn-outline-success"/>
+          </label>
+      </p>        <label></label></td><td></td>
+    </tr>
+    <tr>
+      <td width="100">Name  </td>
+      <td width="36">Address</td>
+      <td width="36">Phone</td>
+      <td width="36">Email</td>
+      <td width="36"></td>
+      <td width="36"></td>
+
+    </tr>
+      {% for i in data %}
+
+    <tr>
+      <td width="100">&nbsp;{{ i.fname }} {{ i.lname }}</td>
+      <td>{{ i.place }},{{ i.post }},{{ i.pin }}</td>
+      <td>&nbsp;{{ i.phone }}</td>
+      <td>{{ i.Email }}</td>
+
+        <td ><a href="editexpert/{{ i.id }}#about" class=" btn btn-outline-primary">Edit</a></td><br>
+      <td><a href="delete/{{ i.LOGIN.id }}" class="btn btn-outline-danger">Delete</a></td>
+    </tr>
+        {% endfor %}
+
+
+
+    <tr>
+      <td colspan="5"><div align="center"><a href="/addexpert#about" class="btn btn-outline-success">Add</a></div></td><td></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
